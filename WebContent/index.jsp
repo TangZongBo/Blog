@@ -19,6 +19,17 @@
 
           }
     </script>
+      <script type="text/javascript">
+             function changeul() {
+                    var uls=document.getElementById("ul");
+                     uls.style.display="block";
+             }
+            function changesul() {
+                var uls=document.getElementById("ul");
+                uls.style.display="none";
+            }
+
+    </script>
 </head>
 <body>
                 <%
@@ -35,7 +46,11 @@
                        }
                        
                 %>
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                
+           <c:choose>  
+                
+                <c:when test="${ empty user}">
+           <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div>
                  <a class="logo" href="#">
                      <img src="img/logo_8cdb85088349c9dab967d86c48f0b5c1.png" alt="logo">
@@ -70,6 +85,72 @@
                 </div>
             </div>
         </nav>
+        </c:when>
+        
+        <c:otherwise>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="width-limit">
+        <!-- 左上方 Logo -->
+        <a class="logo" href="#"><img src="img/logo_8cdb85088349c9dab967d86c48f0b5c1.png" alt="Logo" /></a>
+
+        <!-- 右上角 -->
+        <!-- 登录显示写文章 -->
+        <a class="btn write-btn" target="_blank" href="writer.html">
+            <i class="iconfont ic-write"></i>写文章
+        </a>
+        <!-- 如果用户登录，显示下拉菜单 -->
+        <div class="user" onmouseover="changeul();" onmouseout="changesul();">
+            <div data-hover="dropdown">
+                <a class="avatar" href="/u/5c1c029dbedc"><img src="img/logo_8cdb85088349c9dab967d86c48f0b5c1.png"></a>
+            </div>
+            <ul class="dropdown-menu" id="ul" style="display: none" onmouseover="changeul();">
+                <li>
+                    <a href="/u/5c1c029dbedc">
+                        <i class="iconfont ic-navigation-profile"></i><span>我的文章</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/settings">
+                        <i class="iconfont ic-navigation-settings"></i><span>设置</span>
+                    </a>
+                </li>
+                <li>
+                    <a rel="nofollow" data-method="delete" href="${pageContext.request.contextPath}/ExitAction.action">
+                        <i class="iconfont ic-navigation-signout"></i><span>退出</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="view-mode-ctrl">
+        </div>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#">
+                            <span class="menu-text">发现</span><i class="iconfont ic-navigation-discover menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="search">
+                        <form target="_blank" action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+                            <input type="text" name="q" id="q" value="" placeholder="搜索" class="search-input" />
+                            <a class="search-btn" href="javascript:void(null)"><i class="iconfont ic-search"></i></a>
+                            <!-- <div id="navbar-trending-search"></div> -->
+                        </form>          </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+        </c:otherwise>
+        </c:choose>   
 
         <div class="container index">
             <div class="row">
@@ -93,7 +174,7 @@
                         <div class="content">
                             <div class="author" style="display: inline;float: left;margin-left: 5px;">
                                 <a class="avatar" target="_blank" href="/u/62478ec15b74">
-                                    <img src="//upload.jianshu.io/users/upload_avatars/2542851/0dca220dd6bb.jpeg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96" alt="96"  style="display: inline;margin-left: 18px;"/>
+                                    <img src="img/0.jpg" alt="96"  style="display: inline;margin-left: 18px;"/>
                                 </a>
                                 <div class="name" style="padding-right: 30px;">
                                     		怀左同学

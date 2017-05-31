@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -100,7 +100,7 @@
 
                     <div style="margin-top: 8%;">
 
-                        <form action="" method="post">
+                        <form action="${pageContext.request.contextPath}/RegisterAction.action" method="post">
                             <div id="talkbubble" style="display: none;">用户名已经存在</div>
                             <font color="orange" style="margin-left: 15%;">用户名</font>
                             <input type="text" id="usernames" name="username" required="required" placeholder="请输入您的用户名" onblur="CheckUsername();" value="123" onfocus="deleteTiShi();">
@@ -109,11 +109,9 @@
                             <font color="orange" style="margin-left: 15%;">确认密码</font>
                             <input type="password"  id="words" name="second_password" required="required" placeholder="请再次输入您的密码" onblur="CheckSecondPassword();">
                             <font color="orange" style="margin-left: 15%;">性别</font>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="sex" required="required">男&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="radio" name="sex" required="required">女<br/><br/>
-                            <font color="orange" style="margin-left: 15%;">头像</font>
-                            <input type="file" required="required" placeholder="请上传您的头像">
-                            <input type="hidden" name="hidden" id="hidden1">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="sex" required="required" value="男">男&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="radio" name="sex" required="required" value="女">女<br/><br/> 
+                            <input type="hidden" name="hidden" id="hidden1" value="${requestScope.msg}">
                             <input type="submit" class="submit" value="提交" id="button">
                             <input type="reset" class="reset">
                         </form>

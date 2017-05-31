@@ -25,15 +25,23 @@
         function system(){
         	 
         }
+        function Systemout() {
+            alert(document.getElementById("text2").value);
+            setTimeout('Systemout();',5000);
+        }
+        $(document).ready(function () {
+            setTimeout('Systemout();',5000);
+        });
+        
     </script>
 </head>
 <body>
             <textarea rows="1" cols="50" style="margin-left: 5%" placeholder="请输入你文章的标题"></textarea>
             <div class="editormd" id="test-editormd">
 
-                <textarea class="editormd-markdown-textarea" id="text1" name="test-editormd-markdown-doc"></textarea>
+                <textarea class="editormd-markdown-textarea" id="text1"  name="test-editormd-markdown-doc"></textarea>
             <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
-            <textarea class="editormd-html-textarea" name="text"></textarea>
+            <textarea class="editormd-html-textarea" name="text" id="text2"></textarea>
             </div>
             
             <form>

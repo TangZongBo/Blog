@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:context="http://www.springframework.org/schema/context"
+      xmlns:aop="http://www.springframework.org/schema/aop"
+      xmlns:tx="http://www.springframework.org/schema/tx"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context.xsd
+      http://www.springframework.org/schema/aop
+      http://www.springframework.org/schema/aop/spring-aop.xsd
+      http://www.springframework.org/schema/tx
+      http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+         <!-- 配置action的对象 -->
+         <bean id="RegisterAction" class="cn.st.action.RegisterAction" scope="prototype">
+         
+                 <property name="userService" ref="userService"></property>
+                 <property name="user" ref="user"></property>
+         </bean>
+         
+         <!-- 配置action的对象 -->
+         <bean id="LoginAction" class="cn.st.action.LoginAction" scope="prototype">
+                  <property name="userService" ref="userService"></property>
+         </bean>
+         
+         <!-- 创建User对象 -->
+		<bean id="user" class="cn.st.entity.User">
+		
+         </bean>
+         
+          <!-- 创建service对象 -->
+          <bean id="userService" class="cn.st.service.UserService">
+                  <!-- 
+                   		接口=实现类
+                   -->
+                  <property name="userDao" ref="userDaoImpl"></property>
+          </bean>
+        
+          <!-- 创建实现类对象 -->
+          <bean id="userDaoImpl" class="cn.st.dao.UserDaoImpl">
+                     <!-- 注入 -->
+                      <property name="hibernateTemplate" ref="hibernateTemplate"></property>
+          </bean>
+         
+         <!-- 创建hibernate模板对象 -->
+         <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+                 <!-- 注入sessionFactory -->
+                 <property name="sessionFactory" ref="sessionFactory"></property>
+         
+         </bean>
+         
+</beans>
