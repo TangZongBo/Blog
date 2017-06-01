@@ -1,5 +1,8 @@
 package cn.st.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /*
  * 用户类
  */
@@ -9,7 +12,18 @@ public class User {
            private String username;//用户名
            private String password;//密码
            private String sex;//性别
-          
+           
+           //一个用户可以写多篇博客,但是一篇博客必须是由一个用户编写的
+           //private Set<Bowen> setBowen=new HashSet<Bowen>();
+           
+		
+		/*public Set<Bowen> getSetBowen() {
+			return setBowen;
+		}
+		public void setSetBowen(Set<Bowen> setBowen) {
+			this.setBowen = setBowen;
+		}
+		*/
 		@Override
 		public String toString() {
 			return "User [uid=" + uid + ", username=" + username + ", password=" + password + ", sex=" + sex + "]";

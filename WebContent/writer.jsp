@@ -23,13 +23,14 @@
             });
         });
         function system(){
-        	 
+        	document.getElementById("hidden1").value=document.getElementById("text2").value;
         }
         function Systemout() {
-            alert(document.getElementById("text2").value);
+        	document.getElementById("hidden1").value=document.getElementById("text2").value;
             setTimeout('Systemout();',5000);
         }
         $(document).ready(function () {
+        	document.getElementById("hidden1").value=document.getElementById("text2").value;
             setTimeout('Systemout();',5000);
         });
         
@@ -44,7 +45,8 @@
             <textarea class="editormd-html-textarea" name="text" id="text2"></textarea>
             </div>
             
-            <form>
+            <form action="${pageContext.request.contextPath }/WriterAction.action" post="post">
+                 <input type="hidden" name="hidden" id="hidden1">
                 <input type="submit" value="提交" style="margin-left: 47%;width: 120px;height:50px;padding: 0;" onclick="system();">
             </form>
 </body>

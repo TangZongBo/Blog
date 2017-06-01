@@ -17,6 +17,6 @@
                 <property name="content" column="content"></property>
                   <property name="code" column="code"></property>
                   <property name="autherid" column="autherid"></property>
-                   <property name="time" column="time"></property>
+                   <property name="time" column="time"></property>    
                    </class>
 </hibernate-mapping>

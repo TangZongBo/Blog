@@ -5,6 +5,13 @@
 
 
 <struts>
+
+    <constant name="struts.il8n.encoding" value="UTF-8"></constant>                 <!--采用国际化形式UTF-8 -->
+    <constant name="struts.configuration.xml.reload" value="true"></constant>       <!-- 自动加载配置文件 -->
+    <constant name="struts.devMode" value="true"></constant>                        <!-- 默认调试模式  开发模式 -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"></constant> <!-- 调用动态方法 -->
+    <constant name="struts.multipart.maxSize" value="2048000000"></constant>
+
            <package name="demo1" extends="struts-default" namespace="/">
            <!-- class属性里面不写action全路径了,因为写,action对象创建两次
                                             写spring配置的action的bean的id值
@@ -20,6 +27,13 @@
            </action>
             <action name="ExitAction" class="cn.st.action.ExitAction">
                    <result name="success" type="redirect">/index.jsp</result>
+           </action>
+            <action name="UpdateUserAction" class="UpdateUserAction">
+                    <result name="success" type="redirect">/succeed.jsp</result>
+                    <result name="none">/setup.jsp</result>
+           </action>
+           <action name="WriterAction" class="cn.st.action.WriterAction">
+           
            </action>
            </package>
 <!--         <include file=""></include> -->

@@ -28,8 +28,19 @@ public class UserService {
 		    return userDao.select(username, password);
 	}
 	
-	public void update() {//对用户的修改
-		System.out.println("update service.........");
-		userDao.update();
+	public void update1(int id,String username) {//对用户的修改
+		       userDao.update1(id, username);
+	}
+	
+	public void update2(int id,String password) {//对用户的修改
+	       userDao.update2(id,password);
+}
+	
+	public User getUser() {
+		  return userDao.getUser();
+	}
+	
+	public int findId(String username) {
+		  return userDao.findId(username);
 	}
 }

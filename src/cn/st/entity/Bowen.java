@@ -14,6 +14,16 @@ public class Bowen {
         private Integer autherid;//博文作者id
         private Date time;//博文最近修改的时间
         
+        //private User user;//一个博客对于这一个用户
+        
+        
+        
+		/*public User getUser() {
+			return user;
+		}
+		public void setUser(User user) {
+			this.user = user;
+		}*/
 		public Date getTime() {
 			return time;
 		}

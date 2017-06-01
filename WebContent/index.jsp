@@ -4,13 +4,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
 <title>Insert title here</title>
     <link rel="shortcut icon" href="img/128128.ico" type="images/x-icon"/>
     <link rel="stylesheet" media="all" href="css/index1.css"/>
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="js/picture_switching.js"></script>
-     <script>
+     <script>说
             function Peara(a) {
                   document.getElementById(a).style.textDecoration="underline";
             }
@@ -95,22 +95,29 @@
 
         <!-- 右上角 -->
         <!-- 登录显示写文章 -->
-        <a class="btn write-btn" target="_blank" href="writer.html">
+        <a class="btn write-btn" target="_blank" href="writer.jsp">
             <i class="iconfont ic-write"></i>写文章
         </a>
         <!-- 如果用户登录，显示下拉菜单 -->
         <div class="user" onmouseover="changeul();" onmouseout="changesul();">
             <div data-hover="dropdown">
-                <a class="avatar" href="/u/5c1c029dbedc"><img src="img/logo_8cdb85088349c9dab967d86c48f0b5c1.png"></a>
+                <a class="avatar" href="/u/5c1c029dbedc"> 
+                    <c:if test="${user.sex eq '女'}">
+                   <img src="img/1.jpg">
+                    </c:if>
+                     <c:if test="${user.sex eq '男'}">
+                   <img src="img/0.jpg">
+                    </c:if>
+                   </a>
             </div>
             <ul class="dropdown-menu" id="ul" style="display: none" onmouseover="changeul();">
                 <li>
-                    <a href="/u/5c1c029dbedc">
+                    <a href="#">
                         <i class="iconfont ic-navigation-profile"></i><span>我的文章</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/settings">
+                    <a href="${pageContext.request.contextPath }/setup.jsp">
                         <i class="iconfont ic-navigation-settings"></i><span>设置</span>
                     </a>
                 </li>
@@ -142,7 +149,7 @@
                         <form target="_blank" action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
                             <input type="text" name="q" id="q" value="" placeholder="搜索" class="search-input" />
                             <a class="search-btn" href="javascript:void(null)"><i class="iconfont ic-search"></i></a>
-                            <!-- <div id="navbar-trending-search"></div> -->
+                    
                         </form>          </li>
                 </ul>
             </div>

@@ -52,9 +52,7 @@ public class LoginAction extends ActionSupport{
             		return ERROR;
             	}
             	
-            	User user=new User();
-            	user.setUsername(username);
-            	user.setPassword(password);
+            	User user=userService.getUser();
             	ActionContext.getContext().getSession().put("user",user);
             	return SUCCESS;
             }

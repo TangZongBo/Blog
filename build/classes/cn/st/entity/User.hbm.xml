@@ -12,9 +12,12 @@
                    <class name="cn.st.entity.User" table="user">
                          <id name="uid" column="uid">
                                  <generator class="native"></generator>
+
                          </id>
                  <property name="username" column="username"></property>
                 <property name="password" column="password"></property>
                   <property name="sex" column="sex"></property>
+                  
+                  
                    </class>
 </hibernate-mapping>

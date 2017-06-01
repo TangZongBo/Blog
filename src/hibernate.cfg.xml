@@ -27,5 +27,6 @@
 			
 			<!-- 第三部分:把映射文件放到核心配置文件中 必须的 -->
                  <mapping resource="cn/st/entity/User.hbm.xml"/>
+                 <mapping resource="cn/st/entity/Bowen.hbm.xml"/>
           </session-factory>
 </hibernate-configuration>

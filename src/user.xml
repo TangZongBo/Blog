@@ -26,6 +26,11 @@
                   <property name="userService" ref="userService"></property>
          </bean>
          
+         <!-- 配置action的对象 -->
+         <bean id="UpdateUserAction" class="cn.st.action.UpdateUserAction" scope="prototype">
+                  <property name="userService" ref="userService"></property>
+         </bean>
+         
          <!-- 创建User对象 -->
 		<bean id="user" class="cn.st.entity.User">
 		
