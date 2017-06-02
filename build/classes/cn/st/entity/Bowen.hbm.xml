@@ -13,10 +13,11 @@
                          <id name="bid" column="bid">
                                  <generator class="native"></generator>
                          </id>
-                 <property name="name" column="name"></property>
-                <property name="content" column="content"></property>
-                  <property name="code" column="code"></property>
-                  <property name="autherid" column="autherid"></property>
-                   <property name="time" column="time"></property>    
+                         <property name="name" column="name"></property>
+                         <property name="content" column="content"></property>
+                		<property name="code" column="code"></property>
+                		<property name="time" column="time"></property>
+                		<property name="autherid" column="autherid"></property>
+                		<!-- <many-to-one name="user" class="cn.st.entity.User" column="autherid"></many-to-one> -->
                    </class>
 </hibernate-mapping>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:context="http://www.springframework.org/schema/context"
+      xmlns:aop="http://www.springframework.org/schema/aop"
+      xmlns:tx="http://www.springframework.org/schema/tx"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context.xsd
+      http://www.springframework.org/schema/aop
+      http://www.springframework.org/schema/aop/spring-aop.xsd
+      http://www.springframework.org/schema/tx
+      http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+         <!-- 配置action的对象 -->
+         <bean id="IndexAction" class="cn.st.action.IndexAction" scope="prototype">
+         
+                 <property name="bowenService" ref="bowenService"></property>
+                 <property name="user" ref="user"></property>
+                 <property name="bowen" ref="bowen"></property>
+         </bean>
+         
+          <!-- 创建Bowen对象 -->
+		<bean id="bowen" class="cn.st.entity.Bowen">
+		             
+         </bean>
+         
+         
+         <!-- 创建User对象 -->
+		<bean id="user" class="cn.st.entity.User">
+		
+         </bean>
+         
+          <!-- 创建service对象 -->
+          <bean id="bowenService" class="cn.st.service.BowenService">
+                  <!-- 
+                   		接口=实现类
+                   -->
+                  <property name="bowenDao" ref="bowenDaoImpl"></property>
+          </bean>
+        
+          <!-- 创建实现类对象 -->
+          <bean id="bowenDaoImpl" class="cn.st.dao.BowenDaoImpl">
+                     <!-- 注入 -->
+                      <property name="hibernateTemplate" ref="hibernateTemplate"></property>
+          </bean>
+         
+         <!-- 创建hibernate模板对象 -->
+         <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+                 <!-- 注入sessionFactory -->
+                 <property name="sessionFactory" ref="sessionFactory"></property>
+         
+         </bean>
+         
+</beans>

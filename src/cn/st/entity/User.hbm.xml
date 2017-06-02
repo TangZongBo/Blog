@@ -12,12 +12,13 @@
                    <class name="cn.st.entity.User" table="user">
                          <id name="uid" column="uid">
                                  <generator class="native"></generator>
-
                          </id>
-                 <property name="username" column="username"></property>
-                <property name="password" column="password"></property>
-                  <property name="sex" column="sex"></property>
-                  
-                  
+                         <property name="username" column="username"></property>
+                         <property name="password" column="password"></property>
+                		<property name="sex" column="sex"></property>
+                		<!-- <set name="setBowen">
+                		      <key column="autherid"></key>
+                		      <one-to-many class="cn.st.entity.Bowen"/>
+                		</set> -->
                    </class>
 </hibernate-mapping>

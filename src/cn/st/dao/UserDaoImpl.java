@@ -26,6 +26,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void add(User user) {//像数据库中添加新用户信息
+		    hibernateTemplate.getSessionFactory().openSession().beginTransaction();//开启事务
 		    hibernateTemplate.save(user);
           
 	}

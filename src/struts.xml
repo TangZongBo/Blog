@@ -35,6 +35,13 @@
            <action name="WriterAction" class="cn.st.action.WriterAction">
            
            </action>
+           <action name="IndexAction" class="IndexAction">
+                     <result name="success" type="redirect">/index.jsp</result>
+           </action>
+           
+           <action name="SelectBowenAction" class="cn.st.action.SelectBowenAction">
+                   
+           </action>
            </package>
 <!--         <include file=""></include> -->
 </struts>
