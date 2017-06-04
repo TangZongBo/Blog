@@ -37,7 +37,7 @@ public class UserDaoImpl implements UserDao {
 		 
 		 Transaction tx=session.beginTransaction();
 		 
-		 User user=session.get(User.class,id);
+		  User user=session.get(User.class,id);
 		
 		  user.setUsername(username);
 		  
@@ -105,6 +105,7 @@ public class UserDaoImpl implements UserDao {
 			    return "密码错误";
 		 }
 		 
+		 user.setUid(list.get(0).getUid());
 		 user.setUsername(list.get(0).getUsername());
 		 user.setPassword(list.get(0).getPassword());
 		 user.setSex(list.get(0).getSex());

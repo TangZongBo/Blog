@@ -7,6 +7,7 @@ public class ExitAction extends ActionSupport{
               @Override
             public String execute() throws Exception {
             	  System.out.println(ActionContext.getContext().getSession().get("user"));
+            	  ActionContext.getContext().getSession().put("page",1);
             	 ActionContext.getContext().getSession().put("user",null);
             	 return SUCCESS;
             }

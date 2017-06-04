@@ -18,19 +18,30 @@
          <bean id="IndexAction" class="cn.st.action.IndexAction" scope="prototype">
          
                  <property name="bowenService" ref="bowenService"></property>
-                 <property name="user" ref="user"></property>
+         </bean>
+         
+           <!-- 配置action的对象 -->
+         <bean id="SelectBowenAction" class="cn.st.action.SelectBowenAction" scope="prototype">
+         
+                 <property name="bowenService" ref="bowenService"></property>
+         </bean>
+         
+           <!-- 配置action的对象 -->
+         <bean id="WriterAction" class="cn.st.action.WriterAction" scope="prototype">
+         
+                 <property name="bowenService" ref="bowenService"></property>
                  <property name="bowen" ref="bowen"></property>
          </bean>
          
-          <!-- 创建Bowen对象 -->
-		<bean id="bowen" class="cn.st.entity.Bowen">
-		             
+              <!-- 配置action的对象 -->
+         <bean id="UpdateBowenAction" class="cn.st.action.UpdateBowenAction" scope="prototype">
+         
+                 <property name="bowenService" ref="bowenService"></property>
          </bean>
+        
+         <!-- 创建bowen对象 -->
+         <bean id="bowen" class="cn.st.entity.Bowen">
          
-         
-         <!-- 创建User对象 -->
-		<bean id="user" class="cn.st.entity.User">
-		
          </bean>
          
           <!-- 创建service对象 -->

@@ -54,10 +54,9 @@ public class LoginAction extends ActionSupport{
             	
             	User user=userService.getUser();
             	ActionContext.getContext().getSession().put("user",user);
+            	ActionContext.getContext().getSession().put("page",1);
+            	ActionContext.getContext().getSession().put("msg", null);
             	return SUCCESS;
             }
-
-		
-
-	         
+     
 }

@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-            <h1 style="text-align: center;">页面错误</h1>
+            <h1 style="text-align: center;">${msg}</h1>
+            <h1  style="text-align: center;">点此去<a href="${pageContext.request.contextPath }/login.jsp">登录</a></h1>
+            
 </body>
 </html>

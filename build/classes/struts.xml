@@ -32,16 +32,19 @@
                     <result name="success" type="redirect">/succeed.jsp</result>
                     <result name="none">/setup.jsp</result>
            </action>
-           <action name="WriterAction" class="cn.st.action.WriterAction">
-           
+           <action name="WriterAction" class="WriterAction">
+                   <result name="success" type="redirect">/Bowen.jsp</result>
            </action>
            <action name="IndexAction" class="IndexAction">
                      <result name="success" type="redirect">/index.jsp</result>
            </action>
            
-           <action name="SelectBowenAction" class="cn.st.action.SelectBowenAction">
-                   
+           <action name="SelectBowenAction" class="SelectBowenAction">
+                       <result name="success" type="redirect">/Bowen.jsp</result>
+           </action>
+           
+           <action name="UpdateBowenAction" class="UpdateBowenAction">
+                       <result name="success" type="redirect">/Bowen.jsp</result>
            </action>
            </package>
-<!--         <include file=""></include> -->
 </struts>

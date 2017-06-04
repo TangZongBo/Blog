@@ -15,19 +15,9 @@ import cn.st.service.BowenService;
  */
 public class IndexAction extends ActionSupport{
             
-	private Bowen bowen;
-	
-	private User user;
 	
 	private BowenService bowenService;
 	
-	   public void setBowen(Bowen bowen) {
-		this.bowen = bowen;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 	public void setBowenService(BowenService bowenService) {
 		this.bowenService = bowenService;
@@ -38,6 +28,8 @@ public class IndexAction extends ActionSupport{
 		
 		List<Bowen> listbowen=bowenService.findlistBowen();
 		ActionContext.getContext().getSession().put("listbowen",listbowen);
+		ActionContext.getContext().getSession().put("length",listbowen.size());//多少篇博客
+		ActionContext.getContext().getSession().put("page",1);//指定为第一页
 		return SUCCESS;
 	}
 }

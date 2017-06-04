@@ -14,14 +14,6 @@ public class User {
       private String password;
       private String sex;
       
-    /*  private Set<Bowen> setBowen=new HashSet<Bowen>();
-
-	public Set<Bowen> getSetBowen() {
-		return setBowen;
-	}
-	public void setSetBowen(Set<Bowen> setBowen) {
-		this.setBowen = setBowen;
-	}*/
 	
 	public Integer getUid() {
 		return uid;

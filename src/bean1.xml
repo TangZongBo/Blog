@@ -15,8 +15,8 @@
 
           
          <!-- 配置c3p0连接池 -->
-         <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-                 <!-- 注入属性值 -->
+          <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+                 <!--注入属性值  -->
                    <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
                     <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/blog"></property>
                      <property name="user" value="root"></property>

@@ -37,6 +37,10 @@
                        if(request.getSession().getAttribute("listbowen")==null){
                     	  response.sendRedirect(request.getContextPath()+"/IndexAction.action");
                        }         
+                        
+                         if(request.getParameter("page")!=null){
+                        	request.getSession().setAttribute("page",Integer.valueOf(request.getParameter("page")));
+                         }
                 %>
                 
            <c:choose>  
@@ -166,7 +170,7 @@
         </div>
         </div>
         
-              <c:forEach items="${listbowen}" var="item" end="6" begin="0">
+              <c:forEach items="${listbowen}" var="item" end="${page*2}" begin="0">
              <div id="list-container" style="margin-top: 5px;">
                 <ul class="note-list" infinite-scroll-url="/" style="list-style: none;display: inline;">
                     <li id="note-12770153" data-note-id="12770153" class="have-img" style="display: inline;">
@@ -198,8 +202,8 @@
                         <div>
                         
                          <c:choose>
-                            <c:when test="${ ye < 80 }">
-                                 <a data-page="3" href="${pageContext.request.contextPath}/index.jsp?page=${page}" class="load-more">阅读更多</a>
+                            <c:when test="${(page*2+1)<=length }">
+                                 <a data-page="3" href="${pageContext.request.contextPath}/index.jsp?page=${page+1}" class="load-more">阅读更多</a>
                             </c:when>
                             <c:otherwise>
                              <a data-page="3" href="#" class="load-more">只能显示这么多</a>

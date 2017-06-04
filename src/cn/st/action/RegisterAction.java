@@ -40,6 +40,7 @@ public class RegisterAction extends ActionSupport implements ModelDriven<User>{
 		if(!flag) {
     	userService.add(user);
     	ActionContext.getContext().getSession().put("user",user);
+    	ActionContext.getContext().getSession().put("msg",null);
    	 	return SUCCESS;
 		}
 		 ActionContext.getContext().put("msg","用户名已经注册过!");
