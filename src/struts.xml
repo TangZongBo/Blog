@@ -46,5 +46,8 @@
            <action name="UpdateBowenAction" class="UpdateBowenAction">
                        <result name="success" type="redirect">/Bowen.jsp</result>
            </action>
+           <action name="DeleteBowenAction" class="DeleteBowenAction">
+                        <result name="success" type="redirect">/index.jsp</result>
+           </action>
            </package>
 </struts>

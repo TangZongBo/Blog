@@ -13,7 +13,7 @@ public class UpdateBowenAction extends ActionSupport {
 			    
 			    private String hidden2;
 			    
-			    private String text;
+			    private String hidden3;
 			    
 			   private BowenService bowenService;
 			   
@@ -31,13 +31,14 @@ public class UpdateBowenAction extends ActionSupport {
 			}
 		    public void setHidden2(String hidden2) {
 				this.hidden2 = hidden2;
-			}
-			public String getText() {
-				return text;
+			}			
+
+			public String getHidden3() {
+				return hidden3;
 			}
 
-			public void setText(String text) {
-				this.text = text;
+			public void setHidden3(String hidden3) {
+				this.hidden3 = hidden3;
 			}
 
 			public BowenService getBowenService() {
@@ -50,10 +51,12 @@ public class UpdateBowenAction extends ActionSupport {
 
 			@Override
 	        public String execute() throws Exception {
-
+				
+				System.out.println("code:"+hidden3);
+              
 	        	Bowen oldbowen=(Bowen) ActionContext.getContext().getSession().get("bowen");
 	        	
-	        	bowenService.UpdateBowen(oldbowen.getBid(),hidden1,hidden2,text);
+	        	bowenService.UpdateBowen(oldbowen.getBid(),hidden1,hidden2,hidden3);
 	        	
 	        	Bowen newbowen=bowenService.getBowen();
 	        	
@@ -62,6 +65,8 @@ public class UpdateBowenAction extends ActionSupport {
 	        	newbowen.setUser(user);
 	        	
 	        	ActionContext.getContext().getSession().put("bowen",newbowen);
+	        	
+	    		ActionContext.getContext().getSession().put("listbowen", null);
 	        	
 	        	 return SUCCESS;
 	        }

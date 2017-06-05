@@ -36,6 +36,9 @@ public class BowenService {
 	    	  return bowenDao.getBowen();
 	      }
 
+	       public void DeleteBowen(int bid) {
+	    	   bowenDao.DeleteBowen(bid);
+	       }
 	
 	     
 }

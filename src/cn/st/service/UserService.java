@@ -37,9 +37,10 @@ public class UserService {
 }
 	
 	public User getUser() {
-		  return userDao.getUser();
+		return userDao.getUser();
 	}
 	
+
 	public int findId(String username) {
 		  return userDao.findId(username);
 	}

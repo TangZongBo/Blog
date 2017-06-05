@@ -26,9 +26,8 @@
         function system(){
         	document.getElementById("hidden1").value=document.getElementById("name").value;
         	document.getElementById("hidden2").value=document.getElementById("text1").value;
-          
+        	document.getElementById("hidden3").value=document.getElementById("code").innerText;
         }
-        
         
     </script>
 </head>
@@ -43,29 +42,35 @@
 
              <c:if test="${not empty param.update }">
             <textarea rows="1" cols="50" style="margin-left: 5%" placeholder="请输入你文章的标题" id="name" required="required">${bowen.name}</textarea>
+            
             <div class="editormd" id="test-editormd">
 
                 <textarea class="editormd-markdown-textarea" id="text1"  name="test-editormd-markdown-doc" required="required">${bowen.content}</textarea>
-            <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
-            <textarea class="editormd-html-textarea" name="text" id="text3" form="form1" required="required">${bowen.code}</textarea>
+   				 <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
+    		<textarea class="editormd-html-textarea" name="code" id="code" required="required"></textarea>
             </div>
+            
             <form action="${pageContext.request.contextPath }/UpdateBowenAction.action" method="post" id="form1">
                  <input type="hidden" name="hidden1" id="hidden1">
                   <input type="hidden" name="hidden2" id="hidden2">
+                  <input type="hidden" name="hidden3" id="hidden3">
                 <input type="submit" value="提交" style="margin-left: 47%;width: 120px;height:50px;padding: 0;" onclick="system();">
             </form>
             </c:if>
+            
             <c:if test="${empty param.update }">
             <textarea rows="1" cols="50" style="margin-left: 5%" placeholder="请输入你文章的标题" id="name" required="required"></textarea>
+            
             <div class="editormd" id="test-editormd">
 
-                <textarea class="editormd-markdown-textarea" id="text1"  name="test-editormd-markdown-doc" required="required"></textarea>
-            <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
-            <textarea class="editormd-html-textarea" name="text" id="text3" form="form1" required="required"></textarea>
+                 <textarea class="editormd-markdown-textarea" id="text1"  name="test-editormd-markdown-doc" required="required"></textarea>
+   				 <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
+    		<textarea class="editormd-html-textarea" name="code" id="code" required="required"></textarea>
             </div>
               <form action="${pageContext.request.contextPath }/WriterAction.action" method="post" id="form1">
                  <input type="hidden" name="hidden1" id="hidden1">
                   <input type="hidden" name="hidden2" id="hidden2">
+                  <input type="hidden" name="hidden3" id="hidden3">
                 <input type="submit" value="提交" style="margin-left: 47%;width: 120px;height:50px;padding: 0;" onclick="system();">
             </form>
             </c:if>

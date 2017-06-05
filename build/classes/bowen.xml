@@ -38,6 +38,12 @@
          
                  <property name="bowenService" ref="bowenService"></property>
          </bean>
+         
+            <!-- 配置action的对象 -->
+         <bean id="DeleteBowenAction" class="cn.st.action.DeleteBowenAction" scope="prototype">
+         
+                 <property name="bowenService" ref="bowenService"></property>
+         </bean>
         
          <!-- 创建bowen对象 -->
          <bean id="bowen" class="cn.st.entity.Bowen">

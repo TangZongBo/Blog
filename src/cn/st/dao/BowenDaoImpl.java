@@ -42,10 +42,10 @@ public class BowenDaoImpl implements BowenDao{
 		    	List<User> listuser=query2.list();
 		    	User user=listuser.get(0);
 		    	bowen.setUser(user);
-		    	if(bowen.getContent().length()<200) {
-		    		bowen.setContext(bowen.getContent());
+		    	if(bowen.getContent().length()<50) {
+		    		bowen.setContext(bowen.getContent()+"...");
 		    	}else {
-		    	bowen.setContext(bowen.getContent().substring(0,200)+"...");
+		    	bowen.setContext(bowen.getContent().substring(0,50)+"...");
 		    	}
 		    }
 			return list;
@@ -101,6 +101,26 @@ public class BowenDaoImpl implements BowenDao{
 		public Bowen getBowen() {
 		
 			return this.bowen;
+		}
+
+		@Override
+		public void DeleteBowen(int bid) {
+			
+			 Session session=hibernateTemplate.getSessionFactory().openSession();
+			 
+			 Transaction tx=session.beginTransaction();
+			 
+			 String hql="Delete from Bowen where bid = ?";
+			 
+			 Query query=session.createQuery(hql);
+			 
+			 query.setParameter(0,bid);
+			 
+			 query.executeUpdate();
+			 
+			 tx.commit();
+					
+			
 		}
 		
 

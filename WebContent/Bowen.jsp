@@ -119,8 +119,8 @@
             <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="#">
-                            <span class="menu-text">发现</span><i class="iconfont ic-navigation-discover menu-icon"></i>
+                        <a href="${pageContext.request.contextPath}/index.jsp">
+                            <span class="menu-text">首页</span><i class="iconfont ic-navigation-discover menu-icon"></i>
                         </a>
                     </li>
                     <li class="search">
@@ -159,6 +159,7 @@
                             <!-- 关注用户按钮 -->
                             <c:if test="${bowen.user.username eq user.username }">
                             <a class="btn btn-success follow" href="${pageContext.request.contextPath }/writer.jsp?update=oks"><i class="iconfont ic-follow"></i><span>编辑</span></a>
+                        	  <a class="btn btn-success follow" href="${pageContext.request.contextPath }/DeleteBowenAction?bid=${bowen.bid}"><i class="iconfont ic-follow"></i><span>删除</span></a>
                         	 </c:if>
                             <!-- 文章数据信息 -->
                             <div class="meta">
