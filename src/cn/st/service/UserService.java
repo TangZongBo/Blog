@@ -36,12 +36,12 @@ public class UserService {
 	       userDao.update2(id,password);
 }
 	
-	public User getUser() {
+	public User getUser() {//调用dao类获取新用户对象
 		return userDao.getUser();
 	}
 	
 
-	public int findId(String username) {
+	public int findId(String username) {//调用dao类用用户名查询当前对应的id
 		  return userDao.findId(username);
 	}
 }

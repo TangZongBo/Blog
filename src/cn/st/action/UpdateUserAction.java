@@ -8,7 +8,7 @@ import cn.st.entity.User;
 import cn.st.service.UserService;
 
 /*
- * 更新信息
+ * 更新用户信息
  */
 public class UpdateUserAction extends ActionSupport{
 	
@@ -62,31 +62,30 @@ public class UpdateUserAction extends ActionSupport{
 
 		@Override
         public String execute() throws Exception {
-			  ActionContext.getContext().put("msg","");
-			 if(name.equals(username)&&pwd.equals(password)) {
+			
+			 if(name.equals(username)&&pwd.equals(password)) {//如果用户名和密码压根没改变就直接跳转
 				 return SUCCESS;
 			 }
 	       
-			 if(userService.select(username)&&(!username.equals(name))){
-				  ActionContext.getContext().put("msg","用户名已经存在!");
+			 if(userService.select(username)&&(!username.equals(name))){//首页满足设置的用户名和旧用户名不一致,然后在查询数据库中是否存在设置的用户名
+				  ActionContext.getContext().put("msg","用户名已经存在!");//存在就设置msg为用户已经存在,跳回页面去显示
 				  return NONE;
 			 }
 			 
-			 int id=userService.findId(name);
+			 //新用户名与旧用户名不一致,并且数据库不存在新用户名
+			 int id=userService.findId(name);//根据旧用户名查询要修改的用户名id
 			 
-			 if(!username.equals(name)&&username.length()>0) {
-				 userService.update1(id, username);
+			 if(!username.equals(name)&&username.length()>0) {//新用户名与旧用户名不一致,并且新用户名长度大于0
+				 userService.update1(id, username);//调用根据id修改数据库中的用户名
 			 }
 			 
-			 if(!password.equals(pwd)&&password.length()>0) {
-				 userService.update2(id, password);
+			 if(!password.equals(pwd)&&password.length()>0) {//新密码与旧密码不一致,并且新密码长度大于0
+				 userService.update2(id, password);//调用根据id修改数据库中的密码
 			 }
 			 
-			 User user=userService.getUser();
+			 User user=userService.getUser();//从逻辑类中获取新user类
 			 
-			 System.out.println("ok:"+user);
-			 
-			 ActionContext.getContext().getSession().put("user",user);
+			 ActionContext.getContext().getSession().put("user",user);//更新session域中的user信息为新user信息
 			 
         	 return SUCCESS;
         }

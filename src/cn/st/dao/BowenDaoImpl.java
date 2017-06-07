@@ -74,8 +74,7 @@ public class BowenDaoImpl implements BowenDao{
 		@Override
 		public void addBowen(Bowen bowen) {
 			  hibernateTemplate.getSessionFactory().openSession().beginTransaction();//开启事务
-			  hibernateTemplate.save(bowen);			
-			
+			  hibernateTemplate.save(bowen);					
 		}
 
 		@Override

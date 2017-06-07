@@ -11,6 +11,9 @@ import cn.st.entity.Bowen;
 import cn.st.entity.User;
 import cn.st.service.BowenService;
 
+/*
+ * 修改博客Action
+ */
 public class WriterAction extends ActionSupport{
 	
 	         private String hidden1;
@@ -65,20 +68,22 @@ public class WriterAction extends ActionSupport{
 
 			@Override
             public String execute() throws Exception {
-               System.out.println("hidden3:"+hidden3);
-               
-				User user=(User) ActionContext.getContext().getSession().get("user");
-				bowen.setAutherid(user.getUid());
-				bowen.setCode(hidden3);
-				bowen.setName(hidden1);
-				bowen.setContent(hidden2);
-				bowen.setTime(new Date());
-				bowen.setUser(user);
 				
-				bowenService.addBowen(bowen);
+				System.out.println("hidden3:"+hidden3);//前端写的有点复杂 从隐藏域中获取...
+               
+				User user=(User) ActionContext.getContext().getSession().get("user");//获取当前session域中的用户
+				
+				bowen.setAutherid(user.getUid());//设置文章的作者的id
+				bowen.setCode(hidden3);//更新文章html代码
+				bowen.setName(hidden1);//更新文章标题
+				bowen.setContent(hidden2);//设置文章原字符串
+				bowen.setTime(new Date());//更新最近修改时间
+				bowen.setUser(user);//设置文章对应的用户
+				
+				bowenService.addBowen(bowen);//在数据库中添加博客
             	
-				ActionContext.getContext().getSession().put("bowen",bowen);
-				ActionContext.getContext().getSession().put("listbowen", null);
+				ActionContext.getContext().getSession().put("bowen",bowen);//设置session域中的博客为当前的等会显示
+				ActionContext.getContext().getSession().put("listbowen", null);//设置listbowen为null
 				
             	return SUCCESS;
             }

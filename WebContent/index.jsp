@@ -138,7 +138,7 @@
                 <ul class="nav navbar-nav">
                     <li class="active">
                         <a href="#">
-                            <span class="menu-text">发现</span><i class="iconfont ic-navigation-discover menu-icon"></i>
+                            <span class="menu-text">首页</span><i class="iconfont ic-navigation-discover menu-icon"></i>
                         </a>
                     </li>
                     <li class="search">

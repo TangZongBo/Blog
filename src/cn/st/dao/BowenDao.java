@@ -14,7 +14,7 @@ public interface BowenDao {
           
           public void UpdateBowen(int bid,String hidden1,String hidden2,String text);//根据bid修改该博客信息
 
-		   public Bowen getBowen();
+		   public Bowen getBowen();//获取当前的博客对象
 		   
 		   public void DeleteBowen(int bid);//根据bid删除博客
 }

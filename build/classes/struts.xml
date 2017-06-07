@@ -16,25 +16,37 @@
            <!-- class属性里面不写action全路径了,因为写,action对象创建两次
                                             写spring配置的action的bean的id值
             -->
+            <interceptors>
+            
+            <interceptor name="LoginFilterInterceptor" class="cn.st.filterInterceptor.LoginFilterInterceptor"></interceptor>
+            
+            </interceptors>
            <action name="RegisterAction" class="RegisterAction">
                    <result name="none">/register.jsp</result>
                    <result name="success" type="redirect">/index.jsp</result>
            </action>
+           
            <action name="LoginAction" class="LoginAction">
                    <result name="none">/login.jsp</result>
                    <result name="error">/login.jsp</result>
                  <result name="success" type="redirect">/index.jsp</result>
            </action>
+           
             <action name="ExitAction" class="cn.st.action.ExitAction">
-                   <result name="success" type="redirect">/index.jsp</result>
+            
+           	<result name="success" type="redirect">/index.jsp</result>
+           	
            </action>
-            <action name="UpdateUserAction" class="UpdateUserAction">
+           
+            <action name="UpdateUserAction" class="UpdateUserAction">          
                     <result name="success" type="redirect">/succeed.jsp</result>
                     <result name="none">/setup.jsp</result>
            </action>
+           
            <action name="WriterAction" class="WriterAction">
                    <result name="success" type="redirect">/Bowen.jsp</result>
            </action>
+           
            <action name="IndexAction" class="IndexAction">
                      <result name="success" type="redirect">/index.jsp</result>
            </action>
@@ -46,8 +58,10 @@
            <action name="UpdateBowenAction" class="UpdateBowenAction">
                        <result name="success" type="redirect">/Bowen.jsp</result>
            </action>
+           
            <action name="DeleteBowenAction" class="DeleteBowenAction">
                         <result name="success" type="redirect">/index.jsp</result>
            </action>
+           
            </package>
 </struts>
